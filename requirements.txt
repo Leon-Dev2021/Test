@@ -1,3 +1,2 @@
 python-telegram-bot==13.7
-chromedriver-py==95.0.4638.17
 selenium==3.0.0
