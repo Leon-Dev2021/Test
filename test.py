@@ -12,7 +12,7 @@ chrome_options.add_argument('--no-sandbox')
 
 INPUTI: int = 0
 INPUTII: int = 1
-#browser: Chrome = Chrome(executable_path = env['CHROMEDRIVER_PATH'], chrome_options = chrome_options)
+driver: Chrome = Chrome(executable_path = env['CHROMEDRIVER_PATH'], chrome_options = chrome_options)
 lista: list = [1,10,20,4]
 
 def start(ud: Update, ctx: CallbackContext):
@@ -24,15 +24,15 @@ def initjob(ud: Update, ctx: CallbackContext):
     
 def ident(ud: Update, ctx: CallbackContext):
     shorten: str = ud.message.text
-    #browser.get(shorten)
+    driver.get(shorten)
     ud.message.reply_text('type element id.')
     return INPUTII
     
 def click(ud: Update, ctx: CallbackContext):
     elemid = ud.message.text
-    #button = browser.find_element_by_id(elemid)
+    driver = browser.find_element_by_id(elemid)
     while True:
-        #button.click()
+        driver.click()
         sleep(lista[randrange(0,len(lista))])
     return ConversationHandler.END
     
