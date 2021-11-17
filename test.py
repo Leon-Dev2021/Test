@@ -5,11 +5,15 @@ from selenium.webdriver import Chrome, ChromeOptions
 from time import sleep
 from random import randrange
 
+chrome_options = ChromeOptions()
+chrome_options.binary_location = env['GOOGLE_CHROME_BIN']
+chrome_options.add_argument('--disable-gpu')
+chrome_options.add_argument('--no-sandbox')
+
 INPUTI: int = 0
 INPUTII: int = 1
-#browser: Chrome = Chrome(executable_path = binary_path)
-lista = [1,10,9,4]
-
+#browser: Chrome = Chrome(executable_path = env['CHROMEDRIVER_PATH'], chrome_options = chrome_options)
+lista: list = [1,10,20,4]
 
 def start(ud: Update, ctx: CallbackContext):
     ud.message.reply_text('Hola')
